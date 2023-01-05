@@ -1,0 +1,7 @@
+<mat-form-field [formGroup]="form" appearance="fill" class="paginator">
+  <mat-label>Select number of images</mat-label>
+  <mat-select formControlName="select" (selectionChange)="changeLimit()">
+    <mat-option [value]="limit" *ngFor="let limit of limits">{{limit}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
