@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -9,8 +9,8 @@ import {FormControl, FormGroup} from "@angular/forms";
 export class SearchInputComponent implements OnInit {
   form: FormGroup;
 
-  // @Output()
-  // inputEmitter = new EventEmitter<string>();
+  @Output()
+  inputEmitter = new EventEmitter<string>();
 
   ngOnInit(): void {
     this._createForm()
@@ -20,5 +20,9 @@ export class SearchInputComponent implements OnInit {
     this.form = new FormGroup({
       input: new FormControl(),
     })
+  }
+
+  emit() {
+    this.inputEmitter.emit(this.form.getRawValue().input)
   }
 }
