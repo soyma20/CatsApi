@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+
 import {IBreed} from "../../interfaces/IBreed";
 import {BreedService} from "../../services/breed.service";
 
@@ -7,8 +8,11 @@ import {BreedService} from "../../services/breed.service";
   templateUrl: './breeds.component.html',
   styleUrls: ['./breeds.component.css']
 })
-export class BreedsComponent implements OnInit{
-  breeds : IBreed[];
+export class BreedsComponent implements OnInit {
+  breeds: IBreed[];
+
+  @Input()
+  search: string;
 
   constructor(private breedService: BreedService) {
   }
@@ -16,8 +20,7 @@ export class BreedsComponent implements OnInit{
   ngOnInit(): void {
     this.breedService.getAllBreads().subscribe(value => {
       this.breeds = value
-      console.log(this.breeds.length)
-    })
 
+    })
   }
 }
