@@ -1,13 +1,16 @@
 <mat-toolbar color="primary">
-  <span>Cats API</span>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
 </mat-toolbar>
 
 <mat-drawer-container class="container">
+
   <mat-drawer mode="side" opened>
     <app-side-bar></app-side-bar>
   </mat-drawer>
+
   <mat-drawer-content>
-    <mat-paginator #paginator [length]="50" [pageSizeOptions]="[25,50, 75,100]" aria-label="select page"></mat-paginator>
+    <app-paginator></app-paginator>
     <app-images></app-images>
   </mat-drawer-content>
+
 </mat-drawer-container>
