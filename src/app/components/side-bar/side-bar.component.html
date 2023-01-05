@@ -1,2 +1,6 @@
-<button mat-raised-button color="accent" >Apply</button>
-<app-breeds></app-breeds>
+<app-search-input (inputEmitter)="catchInputEmit($event)"></app-search-input>
+<button mat-raised-button color="accent" class="apply" (click)="findImagesByBreed()">Apply</button>
+<div>
+  <app-chips></app-chips>
+</div>
+<app-breeds [search]="search"></app-breeds>
